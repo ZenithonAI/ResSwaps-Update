@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-onyx-950 via-onyx-900 to-onyx-950 text-ivory-300 antialiased font-sans;
+  }
+  select {
+    @apply bg-onyx-800 border border-onyx-700 rounded-lg px-3 py-2.5 text-ivory-50 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-gold-600 focus:border-gold-600 transition duration-150;
+    color-scheme: dark;
+  }
+  select option {
+    @apply bg-onyx-900 text-ivory-50;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.onyx.800');
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.gold.700');
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.gold.600');
+  }
+}
+
+@layer components {
+  .font-display {
+     font-family: 'Playfair Display', serif;
+  }
+  .font-sans {
+      font-family: 'Inter', sans-serif;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes slide-in-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.react-loading-skeleton {
+  --base-color: theme('colors.onyx.700');
+  --highlight-color: theme('colors.onyx.600');
+  background-color: var(--base-color);
+  background-image: linear-gradient(
+    90deg,
+    var(--base-color),
+    var(--highlight-color),
+    var(--base-color)
+  );
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  border-radius: theme('borderRadius.md');
+  display: inline-block;
+  line-height: 1;
+  width: 100%;
+}
